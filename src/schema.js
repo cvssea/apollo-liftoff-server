@@ -49,7 +49,7 @@ const typeDefs = gql`
     "Track created Unix time "
     createdAt: String
     "The track's full duration, in seconds"
-    durationInSeconds: Int
+    durationInSeconds: Int!
   }
 
   "Author of a complete track or module"
@@ -74,7 +74,7 @@ const typeDefs = gql`
     "Module video resource"
     videoUrl: String!
     "The module's video duration, in seconds"
-    durationInSeconds: Int
+    durationInSeconds: Int!
   }
 `
 
