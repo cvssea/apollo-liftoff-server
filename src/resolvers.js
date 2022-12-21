@@ -40,8 +40,12 @@ const resolvers = {
     },
     createdAt: ({ createdAt }) => {
       return new Date(createdAt)
-    }
+    },
+    durationInSeconds: ({ length }) => length
   },
+  Module: {
+    durationInSeconds: ({ length }) => length
+  }
 }
 
 module.exports = resolvers

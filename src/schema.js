@@ -36,8 +36,8 @@ const typeDefs = gql`
     author: Author!
     "Image representing the Track"
     thumbnail: String
-    "Approximate total time of the Track's modules"
-    length: Int
+    "Approximate total time of the Track's modules in seconds"
+    length: Int @deprecated(reason: "Use durationInSeconds")
     "The number of modules in the Track"
     modulesCount: Int
     "The track's complete description, can be in Markdown format"
@@ -48,6 +48,8 @@ const typeDefs = gql`
     modules: [Module!]!
     "Track created Unix time "
     createdAt: String
+    "The track's full duration, in seconds"
+    durationInSeconds: Int
   }
 
   "Author of a complete track or module"
@@ -65,12 +67,14 @@ const typeDefs = gql`
     id: ID!
     "The Module's title"
     title: String
-    "The Module's length in minutes"
-    length: Int
+    "The Module's length in seconds"
+    length: Int @deprecated(reason: "Use durationInSeconds")
     "Content of the module"
     content: String
     "Module video resource"
     videoUrl: String!
+    "The module's video duration, in seconds"
+    durationInSeconds: Int
   }
 `
 
